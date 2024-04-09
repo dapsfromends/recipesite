@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RECIPE RADAR</title>
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/darkmode.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <h1> Welcome to RECIPE RADAR</h1>
+    <h2><a href="Register.html">Click here to Register</a></h2>
+    <h2><a href="login.html">Click here to login</a></h2>
+    <header>
+      <div class="topnav">
+        <div class="container flex">
+          <div class="navicons flex">
+            <a href="/"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="/"><i class="fa-brands fa-youtube"></i></a>
+            <a href="/"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+          <a href="/" class="srbtn"
+            >Submit Recipe<i class="fa-solid fa-plus"></i
+          ></a>
+        </div>
+      </div>
+      <div class="mainnav">
+        <div class="container flex">
+          <div class="logo flex">
+            <img src="img/logo2.png" alt="" />
+            <h1>RECIPE-RADAR</h1>
+          </div>
+          <ul class="navlist flex">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Categories</a></li>
+            <li><a href="/">Blog</a></li>
+            <li><a href="/">Recipes</a></li>
+            <li><a href="/">Pages</a></li>
+            <li><a href="/">Contact Us</a></li>
+            <li><a href="/">Sign In</a></li>
+          </ul>
+          <div class="searchbar flex">
+            <input
+              type="checkbox"
+              name="check-toggle"
+              id="checkbox"
+              hidden=""
+            />
+            <label for="checkbox" class="toggle">
+              <div class="toggle__circle"></div>
+            </label>
+            <i class="fa-solid fa-magnifying-glass" id="searchopen"></i>
+            <div class="navonoff">
+              <input type="checkbox" id="checkbox2" />
+              <label for="checkbox2" class="toggle2">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+              </label>
+            </div>
+          </div>
+          <div class="searchinput">
+            <input type="text" placeholder="Search Recipes.." />
+            <i class="fa-solid fa-xmark" id="removesearch"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="headerimg">
+        <div class="container">
+          <div class="headerinfo flex">
+            <h1 class="headertitle">Brownie Cookies</h1>
+            <p class="headerpera">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Voluptatum repellat sed aliquam suscipit quisquam cum!
+            </p>
+            <a href="/" class="headerbtn"
+              >VIEW RECIPES<i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>   
+    </section>
+    <section class="headerslider container">
+      <div class="slidertitle flex">
+        <h4>My Latest Recipes</h4>
+        <div class="sliderlfbtn">
+          <button id="sleft"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="sright"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="headercards flex">
+       <!-- <div class="headercard flex">
+          <img src="img/ramennoodles.jpg" alt="">
+          <div class="hcardinfo">
+            <span>Advanced</span>
+            <h3>Brownie Cookies</h3>
+          </div>
+        </div>
+        <div class="headercard flex">
+          <img src="img/fr4.jpg" alt="">
+          <div class="hcardinfo">
+            <span>Advanced</span>
+            <h3>Brownie Cookies</h3>
+          </div>
+        </div>
+        <div class="headercard flex">
+          <img src="img/fr2.jpg" alt="">
+          <div class="hcardinfo">
+            <span>Advanced</span>
+            <h3>Brownie Cookies</h3>
+          </div>
+        </div> -->
+      </div>
+    </section>
+    <section class="threecards container flex">
+      <div class="tcard">
+        <div class="tcardimg">
+          <img src="/img/post4.jpg" alt="">
+          <span class="fa fa-star "></span>
+        </div>
+        <div class="tcardinfo flex">
+          <label class="tlabel">Breakfast</label>
+          <h2>Sunday Best Fruit Salad With Best Recipe</h2>
+          <div class="star-rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star "></span>
+            <span class="fa fa-star "></span>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+          <ul class="flex">
+            <li><i class="fa-solid fa-user"></i>by</li>
+            <li><i class="fa-regular fa-clock"></i>26 Mins</li>
+            <li><i class="fa-regular fa-heart"></i>10 Likes</li>
+          </ul>
+          <a href="/" class="tcardbtn">Read More</a>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcardimg">
+          <img src="/img/post3.jpg" alt="">
+          <span class="fa fa-star "></span>
+        </div>
+        <div class="tcardinfo flex">
+          <label class="tlabel">Lunch</label>
+          <h2>Sunday Best Fruit Salad With Best Recipe</h2>
+          <div class="star-rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star "></span>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+          <ul class="flex">
+            <li><i class="fa-solid fa-user"></i>by</li>
+            <li><i class="fa-regular fa-clock"></i>5 Mins</li>
+            <li><i class="fa-regular fa-heart"></i>60 Likes</li>
+          </ul>
+          <a href="/" class="tcardbtn">Read More</a>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcardimg">
+          <img src="/img/post2.jpg" alt="">
+          <span class="fa fa-star "></span>
+        </div>
+        <div class="tcardinfo flex">
+          <label class="tlabel">Dinner</label>
+          <h2>Sunday Best Fruit Salad With Best Recipe</h2>
+          <div class="star-rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star "></span>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+          <ul class="flex">
+            <li><i class="fa-solid fa-user"></i>by</li>
+            <li><i class="fa-regular fa-clock"></i>26 Mins</li>
+            <li><i class="fa-regular fa-heart"></i>10 Likes</li>
+          </ul>
+          <a href="/" class="tcardbtn">Read More</a>
+        </div>
+      </div>
+
+    </section>
+    <section class="categoriescards container flex">
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/bread.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>1 Recipe</span>
+          <h3>Bread</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/bread.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>2 Recipe</span>
+          <h3>Bread</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/fr4.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>3 Recipe</span>
+          <h3>Pasta</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/bread.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>4 Recipe</span>
+          <h3>Quick Meal</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/fr3.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>5 Recipe</span>
+          <h3>Quick Food</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/fr2.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>6 Recipe</span>
+          <h3>Breakfast</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/post3.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>7 Recipe</span>
+          <h3>Dessert</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+      <a href="/" class="catecard">
+        <div class="cateimg">
+          <img src="/img/bread.jpg" alt="">
+        </div>
+        <div class="catecardinfo flex">
+          <span>8 Recipe</span>
+          <h3>Bread</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+      </a>
+
+    </section>
+    <section class="categoryfilter container flex">
+      <div class="filter flex">
+        <div class="filtername">
+          <div class="flex active">
+            <i class="fa-solid fa-burger"></i>
+            <h3>Quick Meal</h3>
+          </div>
+        </div>
+        <div class="filtername">
+          <div class="flex">
+            <i class="fa-solid fa-burger"></i>
+            <h3>Quick Meal</h3>
+          </div>
+        </div>
+        <div class="filtername">
+          <div class="flex ">
+            <i class="fa-solid fa-burger"></i>
+            <h3>Quick Meal</h3>
+          </div>
+        </div>
+        <div class="filtername">
+          <div class="flex">
+            <i class="fa-solid fa-burger"></i>
+            <h3>Quick Meal</h3>
+          </div>
+        </div>
+      </div>
+      <div class="filtercards flex">
+        <div class="tcard">
+          <div class="tcardimg">
+            <img src="/img/cherry cream cheese pie.jpg" alt="">
+            <span class="fa fa-star"></span>
+          </div>
+          <div class="tcardinfo flex">
+            <label class="label">Pie</label>
+            <h2>Cheese Pie</h2>
+            <div class="star-rating">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star "></span>
+              <span class="fa fa-star "></span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+          <ul class="flex">
+            <li><i class="fa-solid fa-user"></i>by</li>
+            <li><i class="fa-regular fa-clock"></i>26 Mins</li>
+            <li><i class="fa-regular fa-heart"></i>10 Likes</li>
+          </ul>
+          <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcardimg">
+            <img src="/img/cherry cream cheese pie.jpg" alt="">
+            <span class="fa fa-star"></span>
+          </div>
+          <div class="tcardinfo flex">
+            <label class="label">Pie</label>
+            <h2>Cheese Pie</h2>
+            <div class="star-rating">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star "></span>
+              <span class="fa fa-star "></span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+          <ul class="flex">
+            <li><i class="fa-solid fa-user"></i>by</li>
+            <li><i class="fa-regular fa-clock"></i>26 Mins</li>
+            <li><i class="fa-regular fa-heart"></i>10 Likes</li>
+          </ul>
+          <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcardimg">
+            <img src="/img/cherry cream cheese pie.jpg" alt="">
+            <span class="fa fa-star"></span>
+          </div>
+          <div class="tcardinfo flex">
+            <label class="label">Pie</label>
+            <h2>Cheese Pie</h2>
+            <div class="star-rating">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star "></span>
+              <span class="fa fa-star "></span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+          <ul class="flex">
+            <li><i class="fa-solid fa-user"></i>by</li>
+            <li><i class="fa-regular fa-clock"></i>26 Mins</li>
+            <li><i class="fa-regular fa-heart"></i>10 Likes</li>
+          </ul>
+          <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="featuredrecipe container flex">
+      <div class="featuredtitles flex">
+        <div class="titleicon">
+          <img src="/img/chef3.jpg" alt="">
+        </div>
+        <h1>Featured Recipes</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo cupiditate amet omnis. Voluptates fugit assumenda repudiandae facilis cum.</p>
+      </div>
+      <div class="featuredcards flex">
+        <div class="fcard">
+          <div class="fcardimg">
+            <img src="img/cookies1.jpg" alt="">
+            <div class="fauthorname flex">
+              <img src="/img/usericon.jpg" alt="">
+              <div class="fauth">
+                <h5>Master Chef</h5>
+                <p>33 Recipes</p>
+              </div>
+            </div>
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="fcardinfo flex">
+            <div class="star-rating">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked "></span>
+              <span class="fa fa-star checked"></span>
+            </div>
+            <label>Begineer</label>
+            <h2>Brownie Cookies</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quidem natus sunt ipsum nam esse dicta ab?</p>
+            <a href="/" class="fcardbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcardimg">
+            <img src="img/cookies1.jpg" alt="">
+            <div class="fauthorname flex">
+              <img src="/img/usericon.jpg" alt="">
+              <div class="fauth">
+                <h5>Master Chef</h5>
+                <p>33 Recipes</p>
+              </div>
+            </div>
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="fcardinfo flex">
+            <div class="star-rating">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked "></span>
+              <span class="fa fa-star "></span>
+            </div>
+            <label>Intermediate</label>
+            <h2>Healthy Steak</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quidem natus sunt ipsum nam esse dicta ab?</p>
+            <a href="/" class="fcardbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcardimg">
+            <img src="img/fr4.jpg" alt="">
+            <div class="fauthorname flex">
+              <img src="/img/usericon.jpg" alt="">
+              <div class="fauth">
+                <h5>Master Chef</h5>
+                <p>10 Recipes</p>
+              </div>
+            </div>
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="fcardinfo flex">
+            <div class="star-rating">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star  "></span>
+              <span class="fa fa-star "></span>
+            </div>
+            <label>Advanced</label>
+            <h2>Brownie Cookies</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quidem natus sunt ipsum nam esse dicta ab?</p>
+            <a href="/" class="fcardbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="gfbg">
+      <div class="container flex">
+        <div class="greenworld flex">
+          <img src="img/spinach.jpg" alt="">
+          <div class="gfinfo">
+            <span>Veggies</span>
+            <h1>Green World</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="/">CLICK HERE <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="fruitworld flex">
+          <img src="img/fruitfruit.jpg" alt="">
+          <div class="gfinfo">
+            <span>Desserts</span>
+            <h1>Fruit World</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="/">CLICK HERE <i class="fa-solid fa-arrow-right"></i></a>
+
+        </div>
+        
+
+      </div>
+    </section>
+    <section class="breakfastsec container flex">
+      <div class="leftsidesec">
+        <div class="leftboxtitle">
+          <h1>Enjoy Breakfast</h1>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis excepturi nam ex consequuntur consectetur a fugiat sit temporibus!</p>
+        </div>
+        <div class="leftposts flex">
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr3.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr5.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr5.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr5.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        
+        </div>
+        <div class="youradverts">
+          <h1>Place Your Ads Here</h1>
+        </div>
+      </div>
+
+      <div class="rightsidesec">
+        <div class="aboutsec">
+          <h3 class="tdesign">About Me</h3>
+          <div class="aboutbox">
+            <img src="img/chefsamplefoto.jpg" alt="">
+            <h4>Sample Chef Dude</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit amet sint totam, consequatur magnam nobis mollitia odio eos incidunt perspiciatis assumenda? Corporis, nulla nesciunt.</p>
+          </div>
+        </div>
+        <div class="toprecipe">
+          <h3 class="tdesign">My Top Recipes</h3>
+          <div class="toprecipeposts flex">
+            <a href="/" class="trpost">
+              <img src="/img/bread.jpg" alt="">
+              <div class="trpostinfo">
+                <h4>Brownie Cookies</h4>
+                <p><span>dapsfromends</span></p>
+              </div>
+            </a>
+            <a href="/" class="trpost">
+              <img src="/img/bread.jpg" alt="">
+              <div class="trpostinfo">
+                <h4>Brownie Cookies</h4>
+                <p><span>dapsfromends</span></p>
+              </div>
+            </a>
+            <a href="/" class="trpost">
+              <img src="/img/bread.jpg" alt="">
+              <div class="trpostinfo">
+                <h4>Brownie Cookies</h4>
+                <p><span>dapsfromends</span></p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="followme">
+          <h3 class="tdesign">Follow Me</h3>
+          <div class="followcards flex">
+            <a href="" class="socicard">
+              <i class="fa-brands fa-facebook-f"></i>
+              <h5>FACEBOOK</h5>
+              <i class="fa-solid fa-plus"></i>
+              <p>FOLLOW</p>
+            </a>
+            <a href="" class="socicard">
+              <i class="fa-brands fa-twitter"></i>
+              <h5>TWITTER</h5>
+              <i class="fa-solid fa-plus"></i>
+              <p>FOLLOW</p>
+            </a>
+            <a href="" class="socicard">
+              <i class="fa-brands fa-linkedin"></i>
+              <h5>LINKEDIN</h5>
+              <i class="fa-solid fa-plus"></i>
+              <p>FOLLOW</p>
+            </a>
+            <a href="" class="socicard">
+              <i class="fa-brands fa-youtube"></i>
+              <h5>YOUTUBE</h5>
+              <i class="fa-solid fa-plus"></i>
+              <p>FOLLOW</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="subscribe">
+      <div class="subscribeinfo">
+        <h1>Subscribe To My Channel</h1>
+        <p>Get All My Latest Recipes By Joining My Youtube Channel</p>
+        <form action="https://www.youtube.com/@codingwebstudio/codingwebstudio?sub_confirmation=1">
+          <input type="hidden" name="sub_confirmation=1" value="1">
+          <label for="name">@codingwebstudio</label>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+   </main>
+
+   <footer>
+    <div class="container flex">
+      <div class="footer flex">
+        <div class="footerlogo">
+          <h1>Recipe Blog</h1>
+          <p>I provide the best recipes with a special twist on a daily basis. I also make posts about fun things to do in the kitchen.</p>
+          <div class="fsocial">
+            <a href="" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footernav">
+          <h3>Recipes</h3>
+          <ul class="flex">
+            <li><a href="/">Breakfast</a></li>
+            <li><a href="/">Dessert</a></li>
+            <li><a href="/">Dinner</a></li>
+            <li><a href="/">Dairy</a></li>
+          </ul>
+        </div>
+        <div class="footernav">
+          <h3>Legal</h3>
+          <ul class="flex">
+            <li><a href="/">Privacy Policy</a></li>
+            <li><a href="/">Refund Policy</a></li>
+            <li><a href="/">Cookie Policy</a></li>
+            <li><a href="/">Terms and Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex">
+        <h5>&copy; 2024 RECIPE-RADAR All Rights Reserved.</h5>
+      </div>
+    </div>
+   </footer>
+   
+     
+    `
+    <script src="js/script.js"></script>
+  </body>
+</html>
