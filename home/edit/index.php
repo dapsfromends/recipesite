@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 include_once ("../../connection.php");
 
 // Top Five
-$top5 = "SELECT id, image, chefname, RecipeName FROM recipemethod LIMIT 5";
+$top5 = "SELECT id, image, chefname, RecipeName FROM recipemethod";
 $result_top5 = $db->query($top5);
 ?>
 
