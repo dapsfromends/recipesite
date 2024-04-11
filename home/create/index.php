@@ -139,6 +139,10 @@
                       <input type="text" id="category" class="form-control" >
                     </div>
                     <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Rate</label>
+                      <input type="text" id="rate" class="form-control" max="5" min="0" >
+                    </div>
+                    <div class="mb-3">
                       <label for="exampleInputtext1" class="form-label">Recipe Name</label>
                       <input type="text" id="RecipeName" class="form-control">
                     </div>

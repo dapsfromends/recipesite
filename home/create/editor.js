@@ -56,12 +56,14 @@ document
     var chefname = document.getElementById('chefname').value;
     var category = document.getElementById('category').value;
     var image = document.getElementById('image').value;
+    var rate = document.getElementById('rate').value;
 
     // Create FormData object to send data to PHP script
     var formData = new FormData();
     formData.append('RecipeName', RecipeName);
     formData.append('image', image);
     formData.append('chefname', chefname);
+    formData.append('rate', rate);
     formData.append('category', category);
     formData.append('Ingredients', content1); // Add content from first editor
     formData.append('Directions', content2);

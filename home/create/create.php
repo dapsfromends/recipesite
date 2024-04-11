@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Ingredients = mysqli_real_escape_string($db, $Ingredients);
 
         // Prepare and execute SQL query
-        $sql = "INSERT INTO recipemethod (chefname, category, RecipeName, Ingredients, Directions, image ) VALUES ('$chefname','$category','$RecipeName','$Ingredients','$Directions', '$image')";
+        $sql = "INSERT INTO recipemethod (chefname, category, RecipeName, Ingredients, Directions, image, rate ) VALUES ('$chefname','$category','$RecipeName','$Ingredients','$Directions', '$image', 5)";
         if ($db->query($sql) === TRUE) {
             echo "New record created successfully";
         } else {
