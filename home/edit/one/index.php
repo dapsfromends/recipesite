@@ -81,14 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 <span class="hide-menu">Create</span>
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="/home/recipes" aria-expanded="false">
-                <span>
-                  <i class="ti ti-cards"></i>
-                </span>
-                <span class="hide-menu">Get Recipes</span>
-              </a>
-            </li>
+
             <li class="sidebar-item">
               <a class="sidebar-link active" href="/home/edit" aria-expanded="false">
                 <span>
