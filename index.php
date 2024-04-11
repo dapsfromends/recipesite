@@ -2,28 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include_once ("db/conn.php");
-$about = "SELECT * FROM about WHERE id = 1";
-$result_about = $conn->query($about);
-$name = $about = $image = $gmail = $linkedin = $facebook = $instagram = $twitter = "";
-if ($result_about->num_rows > 0) {
-    $row = $result_about->fetch_assoc();
-    $name = $row["name"];
-    $image = $row["image"];
-    $about = $row["about"];
-    $gmail = $row["gmail"];
-    $linkedin = $row["linkedin"];
-    $facebook = $row["facebook"];
-    $instagram = $row["instagram"];
-    $twitter = $row["twitter"];
-    $id = $row["id"];
-}
+include_once ("./connection.php");
 
-$posts = "SELECT * FROM blogs";
-$result_posts = $conn->query($posts);
-// Top Five
-$top5 = "SELECT id, title, created_at, cover_image FROM blogs ORDER BY view DESC LIMIT 5";
-$result_top5 = $conn->query($top5);
+$posts = "SELECT *  FROM recipemethod";
+$result_posts = $db->query($posts);
 ?>
 
 <!DOCTYPE html>
@@ -153,87 +135,37 @@ $result_top5 = $conn->query($top5);
     <section class="breakfastsec container flex">
       <div class="leftsidesec">
         <div class="leftposts flex">
-          <div class="tcard">
-            <div class="tcardimg">
-              <img src="/img/fr3.jpg" alt="">
-              <span class="fa fa-star"></span>
-            </div>
-            <div class="tcardinfo flex">
-              <div class="star-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star "></span>
-                <span class="fa fa-star "></span>
-              </div>
-              <label class="tlabel">Pie</label>
-              <h2>Cheese Pie</h2>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
-            
-            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="tcard">
-            <div class="tcardimg">
-              <img src="/img/fr5.jpg" alt="">
-              <span class="fa fa-star"></span>
-            </div>
-            <div class="tcardinfo flex">
-              <div class="star-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star "></span>
-                <span class="fa fa-star "></span>
-              </div>
-              <label class="tlabel">Pie</label>
-              <h2>Cheese Pie</h2>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
-            
-            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="tcard">
-            <div class="tcardimg">
-              <img src="/img/fr5.jpg" alt="">
-              <span class="fa fa-star"></span>
-            </div>
-            <div class="tcardinfo flex">
-              <div class="star-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star "></span>
-                <span class="fa fa-star "></span>
-              </div>
-              <label class="tlabel">Pie</label>
-              <h2>Cheese Pie</h2>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
-            
-            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="tcard">
-            <div class="tcardimg">
-              <img src="/img/fr5.jpg" alt="">
-              <span class="fa fa-star"></span>
-            </div>
-            <div class="tcardinfo flex">
-              <div class="star-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star "></span>
-                <span class="fa fa-star "></span>
-              </div>
-              <label class="tlabel">Pie</label>
-              <h2>Cheese Pie</h2>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
-            
-            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-        
+        <?php
+          if ($result_posts->num_rows > 0) {
+            while ($row = $result_posts->fetch_assoc()) {
+              $id = $row['id'];
+              $chefname = $row['chefname'];
+              $category = $row['category'];
+              $title = $row['Recipename'];
+              $image = $row['image'];
+          echo '<div class="tcard">';
+          echo  '<div class="tcardimg">';
+          echo  '<img src="' . $image . '" alt="">';
+          echo   '<span class="fa fa-star"></span>';
+          echo  '</div>';
+          echo  '<div class="tcardinfo flex">';
+          echo    '<div class="star-rating">';
+          echo      '<span class="fa fa-star checked"></span>';
+          echo      '<span class="fa fa-star checked"></span>';
+          echo      '<span class="fa fa-star checked"></span>';
+          echo     ' <span class="fa fa-star "></span>';
+          echo      '<span class="fa fa-star "></span>';
+          echo    '</div>';
+          echo    '<label class="tlabel">' . $category . '</label>';
+          echo    '<h2>' . $title . '</h2>';
+          echo    '<p>' . $chefname . '</p>';
+          echo    ' <a href="/recipe/?id=' . $id . '" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>';
+          echo '</div></div>';
+        }
+      } else {
+        echo "No popular blogs found.";
+      }
+      ?>
         </div>
       </div>
 
@@ -244,32 +176,6 @@ $result_top5 = $conn->query($top5);
             <img src="img/chefsamplefoto.jpg" alt="">
             <h4>Sample Chef Dude</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit amet sint totam, consequatur magnam nobis mollitia odio eos incidunt perspiciatis assumenda? Corporis, nulla nesciunt.</p>
-          </div>
-        </div>
-        <div class="toprecipe">
-          <h3 class="tdesign">My Top Recipes</h3>
-          <div class="toprecipeposts flex">
-            <a href="/" class="trpost">
-              <img src="/img/bread.jpg" alt="">
-              <div class="trpostinfo">
-                <h4>Brownie Cookies</h4>
-                <p><span>dapsfromends</span></p>
-              </div>
-            </a>
-            <a href="/" class="trpost">
-              <img src="/img/bread.jpg" alt="">
-              <div class="trpostinfo">
-                <h4>Brownie Cookies</h4>
-                <p><span>dapsfromends</span></p>
-              </div>
-            </a>
-            <a href="/" class="trpost">
-              <img src="/img/bread.jpg" alt="">
-              <div class="trpostinfo">
-                <h4>Brownie Cookies</h4>
-                <p><span>dapsfromends</span></p>
-              </div>
-            </a>
           </div>
         </div>
 
