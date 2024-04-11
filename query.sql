@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS recipemethod (
     Ingredients TEXT NOT NULL,
     Directions TEXT,
     image TEXT,
+    rate INT UNSIGNED,
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
