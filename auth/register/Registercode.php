@@ -1,6 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-include('connection.php');
+include('../../connection.php');
  $fname=$_POST['fname'];
  $lname=$_POST['lname'];
  $email=$_POST['email'];
@@ -10,7 +12,7 @@ include('connection.php');
     if($password !== $confirmpassword)
     {
        echo "Passwords do not match!";
-       header("Location: register.html");
+       header("Location: /auth/register");
     }
        
     else
@@ -21,12 +23,12 @@ include('connection.php');
         if($result)
         {
             echo "Registered Successfully";
-            header("Location: login.html");
+            header("Location: /auth/login");
         }
         else
         {
             echo "Something Went Wrong!";
-            header("Location: register.html");
+            header("Location: /auth/register");
         }
     }
    

@@ -1,5 +1,7 @@
 <?php
-include("connection.php"); //Establishing connection with our database
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include("../../connection.php"); 
     if(empty($_POST["email"]) || empty($_POST["password"]))
     {
         echo "Both fields are required.";
@@ -14,12 +16,13 @@ include("connection.php"); //Establishing connection with our database
 
          if(mysqli_num_rows($result) == 1)
         {
-            header("location: home.html"); // Redirecting To another Page
+            header("location: /home"); // Redirecting To another Page
         }
         else
         {
+            // Echo Wont work redircting using header would aleminate the Echo
             echo "Incorrect username or password.";
-            header("location: login.html");
+            header("location: /auth/login");
             
         }
     }
