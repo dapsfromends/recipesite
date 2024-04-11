@@ -2,115 +2,175 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$sql = "SELECT b.id AS blog_id, b.love AS blog_love, b.view AS blog_view, b.cover_image AS blog_cover_image, b.title AS blog_title, b.preview AS blog_preview, b.created_at AS blog_created_at, u.fullname AS author_fullname FROM blogs AS b INNER JOIN users AS u ON b.author = u.id ORDER BY b.created_at DESC";
 include_once ("./connection.php");
-$result = $conn->query($sql);
+
+$posts = "SELECT *  FROM recipemethod";
+$result_posts = $db->query($posts);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title -->
-    <title>Honey Well Today Post</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="/img/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
-    <link href="/style.css" rel="stylesheet">
-
-    <!-- Responsive CSS -->
-    <link href="/css/responsive/responsive.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <?php include_once ('./include/top_header.php') ?>
-    <!-- ****** Top Header Area End ****** -->
-
-    <?php include_once ('./include/nav.php') ?>
-    <!-- ****** Breadcumb Area End ****** -->
-
-    <!-- ****** Archive Area Start ****** -->
-    <section class="archive-area section_padding_80">
-        <div class="container">
-            <div class="row">
-                <?php
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $blog_id = $row['blog_id'];
-                        $blog_view = $row['blog_view'];
-                        $blog_love = $row['blog_love'];
-                        $blog_cover_image = $row['blog_cover_image'];
-                        $blog_title = $row['blog_title'];
-                        $blog_preview = $row['blog_preview'];
-                        $blog_created_at = date("F j, Y", strtotime($row['blog_created_at']));
-                        $author_fullname = $row['author_fullname'];
-
-                        echo '<div class="col-12 col-md-6 col-lg-4">';
-                        echo '<div class="single-post wow fadeInUp" data-wow-delay="0.1s">';
-                        echo '<div class="post-thumb">';
-                        echo ' <img src="' . $blog_cover_image . '" alt="">';
-                        echo '</div>';
-                        echo '<div class="post-content">';
-                        echo ' <div class="post-meta d-flex">';
-                        echo '<div class="post-author-date-area d-flex">';
-                        echo ' <div class="post-author">';
-                        echo '<a href="/post/?id=' . $blog_id . '">By ' . $author_fullname . '</a>';
-                        echo '</div>';
-                        echo '<div class="post-date">';
-                        echo '<a href="/post/?id=' . $blog_id . '">' . $blog_created_at . '</a>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '<div class="post-comment-share-area d-flex">';
-                        // Additional meta information like comments, shares can be added here
-                        echo '<div class="post-favourite">';
-                        echo '<a href="/post/?id=' . $blog_id . '"><i class="fa fa-heart-o" aria-hidden="true"></i> ' . $blog_love . '</a>';
-                        echo '</div>';
-                        echo '<div class="post-comments">';
-                        echo ' <a href="/post/?id=' . $blog_id . '"><i class="fa fa-eye" aria-hidden="true"></i> ' . $blog_view . '</a>';
-                        echo '</div>';
-                        echo '<div class="post-share">';
-                        echo '<a href="/post/?id=' . $blog_id . '"><i class="fa fa-share-alt" aria-hidden="true"></i></a>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '<a href="/post/?id=' . $blog_id . '"><h4 class="post-headline">' . $blog_title . '</h4></a>';
-                        echo '<p>' . $blog_preview . '</p>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo "No blogs created today.";
-                }
-                ?>
-
-
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RECIPE RADAR</title>
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/darkmode.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="topnav">
+        <div class="container flex">
+          <div class="navicons flex">
+            <a href="/"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="/"><i class="fa-brands fa-youtube"></i></a>
+            <a href="/"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+          <a href="/" class="srbtn"
+            >Submit Recipe<i class="fa-solid fa-plus"></i
+          ></a>
         </div>
+      </div>
+      <div class="mainnav">
+        <div class="container flex">
+          <div class="logo flex">
+            <img src="/img/logo2.png" alt="" />
+            <h1>RECIPE-RADAR</h1>
+          </div>
+          <ul class="navlist flex">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Categories</a></li>
+            <li><a href="/">Blog</a></li>
+            <li><a href="/">Recipes</a></li>
+            <li><a href="/">Contact Us</a></li>
+            <li><a href="/auth/register">Register</a></li>
+            <li><a href="/auth/login">Login</a></li>
+          </ul>
+          <div class="searchbar flex">
+            <input
+              type="checkbox"
+              name="check-toggle"
+              id="checkbox"
+              hidden=""
+            />
+            <label for="checkbox" class="toggle">
+              <div class="toggle__circle"></div>
+            </label>
+            <i class="fa-solid fa-magnifying-glass" id="searchopen"></i>
+            <div class="navonoff">
+              <input type="checkbox" id="checkbox2" />
+              <label for="checkbox2" class="toggle2">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+              </label>
+            </div>
+          </div>
+          <div class="searchinput">
+            <input type="text" placeholder="Search Recipes.." />
+            <i class="fa-solid fa-xmark" id="removesearch"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+    <section class="breakfastsec container flex">
+      <div class="leftsidesec">
+        <h2>Showing Result All:</h2>
+        <div class="leftposts flex">
+        <?php
+          if ($result_posts->num_rows > 0) {
+            while ($row = $result_posts->fetch_assoc()) {
+              $id = $row['id'];
+              $chefname = $row['chefname'];
+              $category = $row['category'];
+              $title = $row['Recipename'];
+              $image = $row['image'];
+          echo '<div class="tcard">';
+          echo  '<div class="tcardimg">';
+          echo  '<img src="' . $image . '" alt="">';
+          echo   '<span class="fa fa-star"></span>';
+          echo  '</div>';
+          echo  '<div class="tcardinfo flex">';
+          echo    '<div class="star-rating">';
+          echo      '<span class="fa fa-star checked"></span>';
+          echo      '<span class="fa fa-star checked"></span>';
+          echo      '<span class="fa fa-star checked"></span>';
+          echo     ' <span class="fa fa-star "></span>';
+          echo      '<span class="fa fa-star "></span>';
+          echo    '</div>';
+          echo    '<label class="tlabel">' . $category . '</label>';
+          echo    '<h2>' . $title . '</h2>';
+          echo    '<p>' . $chefname . '</p>';
+          echo    ' <a href="/recipe/?id=' . $id . '" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>';
+          echo '</div></div>';
+        }
+      } else {
+        echo "No popular blogs found.";
+      }
+      ?>
+        </div>
+      </div>
     </section>
-    <!-- ****** Archive Area End ****** -->
+    <section class="subscribe">
+      <div class="subscribeinfo">
+        <h1>Subscribe To My Channel</h1>
+        <p>Get All My Latest Recipes By Joining My Youtube Channel</p>
+        <form action="https://www.youtube.com/@codingwebstudio/codingwebstudio?sub_confirmation=1">
+          <input type="hidden" name="sub_confirmation=1" value="1">
+          <label for="name">@codingwebstudio</label>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+   </main>
 
-    <!-- ****** Footer Menu Area Start ****** -->
-    <?php include_once ('./include/footer.php'); ?>
-    <!-- ****** Footer Menu Area End ****** -->
+   <footer>
+    <div class="container flex">
+      <div class="footer flex">
+        <div class="footerlogo">
+          <h1>Recipe Blog</h1>
+          <p>I provide the best recipes with a special twist on a daily basis. I also make posts about fun things to do in the kitchen.</p>
+          <div class="fsocial">
+            <a href="" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footernav">
+          <h3>Category</h3>
+          <ul class="flex">
+            <li><a href="/category?name=breakfast">Breakfast</a></li>
+            <li><a href="/category?name=dessert">Dessert</a></li>
 
-    <!-- Jquery-2.2.4 js -->
-    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap-4 js -->
-    <script src="/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins JS -->
-    <script src="/js/others/plugins.js"></script>
-    <!-- Active JS -->
-    <script src="/js/active.js"></script>
-</body>
+          </ul>
+        </div>
+        <div class="footernav">
+          <h3>Category</h3>
+          <ul class="flex">
+            <li><a href="/category?name=dinner">Dinner</a></li>
+            <li><a href="/category?name=dairy">Dairy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex">
+        <h5>&copy; 2024 RECIPE-RADAR All Rights Reserved.</h5>
+      </div>
+    </div>
+   </footer>
+   
+     
+    `
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -100,38 +100,6 @@ $result_posts = $db->query($posts);
         </div>
       </div>   
     </section>
-    <section class="headerslider container">
-      <div class="slidertitle flex">
-        <h4>My Latest Recipes</h4>
-        <div class="sliderlfbtn">
-          <button id="sleft"><i class="fa-solid fa-arrow-left"></i></button>
-          <button id="sright"><i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-      </div>
-      <div class="headercards flex">
-       <div class="headercard flex">
-          <img src="img/ramennoodles.jpg" alt="">
-          <div class="hcardinfo">
-            <span>Advanced</span>
-            <h3>Brownie Cookies</h3>
-          </div>
-        </div>
-        <div class="headercard flex">
-          <img src="img/fr4.jpg" alt="">
-          <div class="hcardinfo">
-            <span>Advanced</span>
-            <h3>Brownie Cookies</h3>
-          </div>
-        </div>
-        <div class="headercard flex">
-          <img src="img/fr2.jpg" alt="">
-          <div class="hcardinfo">
-            <span>Advanced</span>
-            <h3>Brownie Cookies</h3>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="breakfastsec container flex">
       <div class="leftsidesec">
         <div class="leftposts flex">
