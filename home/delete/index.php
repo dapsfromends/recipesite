@@ -72,7 +72,7 @@ $result_top5 = $db->query($top5);
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link active" href="/home/edit" aria-expanded="false">
+              <a class="sidebar-link " href="/home/edit" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
@@ -80,7 +80,7 @@ $result_top5 = $db->query($top5);
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/home/delete" aria-expanded="false">
+              <a class="sidebar-link active" href="/home/delete" aria-expanded="false">
                 <span>
                   <i class="ti ti-alert-circle"></i>
                 </span>
