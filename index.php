@@ -1,0 +1,328 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include_once ("db/conn.php");
+$about = "SELECT * FROM about WHERE id = 1";
+$result_about = $conn->query($about);
+$name = $about = $image = $gmail = $linkedin = $facebook = $instagram = $twitter = "";
+if ($result_about->num_rows > 0) {
+    $row = $result_about->fetch_assoc();
+    $name = $row["name"];
+    $image = $row["image"];
+    $about = $row["about"];
+    $gmail = $row["gmail"];
+    $linkedin = $row["linkedin"];
+    $facebook = $row["facebook"];
+    $instagram = $row["instagram"];
+    $twitter = $row["twitter"];
+    $id = $row["id"];
+}
+
+$posts = "SELECT * FROM blogs";
+$result_posts = $conn->query($posts);
+// Top Five
+$top5 = "SELECT id, title, created_at, cover_image FROM blogs ORDER BY view DESC LIMIT 5";
+$result_top5 = $conn->query($top5);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RECIPE RADAR</title>
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/darkmode.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="topnav">
+        <div class="container flex">
+          <div class="navicons flex">
+            <a href="/"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="/"><i class="fa-brands fa-youtube"></i></a>
+            <a href="/"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+          <a href="/" class="srbtn"
+            >Submit Recipe<i class="fa-solid fa-plus"></i
+          ></a>
+        </div>
+      </div>
+      <div class="mainnav">
+        <div class="container flex">
+          <div class="logo flex">
+            <img src="/img/logo2.png" alt="" />
+            <h1>RECIPE-RADAR</h1>
+          </div>
+          <ul class="navlist flex">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Categories</a></li>
+            <li><a href="/">Blog</a></li>
+            <li><a href="/">Recipes</a></li>
+            <li><a href="/">Contact Us</a></li>
+            <li><a href="/auth/register">Register</a></li>
+            <li><a href="/auth/login">Login</a></li>
+          </ul>
+          <div class="searchbar flex">
+            <input
+              type="checkbox"
+              name="check-toggle"
+              id="checkbox"
+              hidden=""
+            />
+            <label for="checkbox" class="toggle">
+              <div class="toggle__circle"></div>
+            </label>
+            <i class="fa-solid fa-magnifying-glass" id="searchopen"></i>
+            <div class="navonoff">
+              <input type="checkbox" id="checkbox2" />
+              <label for="checkbox2" class="toggle2">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+              </label>
+            </div>
+          </div>
+          <div class="searchinput">
+            <input type="text" placeholder="Search Recipes.." />
+            <i class="fa-solid fa-xmark" id="removesearch"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="headerimg">
+        <div class="container">
+          <div class="headerinfo flex">
+            <h1 class="headertitle">Brownie Cookies</h1>
+            <p class="headerpera">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Voluptatum repellat sed aliquam suscipit quisquam cum!
+            </p>
+            <a href="/" class="headerbtn"
+              >VIEW RECIPES<i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>   
+    </section>
+    <section class="headerslider container">
+      <div class="slidertitle flex">
+        <h4>My Latest Recipes</h4>
+        <div class="sliderlfbtn">
+          <button id="sleft"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="sright"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="headercards flex">
+       <div class="headercard flex">
+          <img src="img/ramennoodles.jpg" alt="">
+          <div class="hcardinfo">
+            <span>Advanced</span>
+            <h3>Brownie Cookies</h3>
+          </div>
+        </div>
+        <div class="headercard flex">
+          <img src="img/fr4.jpg" alt="">
+          <div class="hcardinfo">
+            <span>Advanced</span>
+            <h3>Brownie Cookies</h3>
+          </div>
+        </div>
+        <div class="headercard flex">
+          <img src="img/fr2.jpg" alt="">
+          <div class="hcardinfo">
+            <span>Advanced</span>
+            <h3>Brownie Cookies</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="breakfastsec container flex">
+      <div class="leftsidesec">
+        <div class="leftposts flex">
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr3.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr5.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr5.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcardimg">
+              <img src="/img/fr5.jpg" alt="">
+              <span class="fa fa-star"></span>
+            </div>
+            <div class="tcardinfo flex">
+              <div class="star-rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+              </div>
+              <label class="tlabel">Pie</label>
+              <h2>Cheese Pie</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur ducimus aspernatur ratione dicta laboriosam odit iure dolorem!</p>
+            
+            <a href="/" class="catecarbtn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+
+      <div class="rightsidesec">
+        <div class="aboutsec">
+          <h3 class="tdesign">About Me</h3>
+          <div class="aboutbox">
+            <img src="img/chefsamplefoto.jpg" alt="">
+            <h4>Sample Chef Dude</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit amet sint totam, consequatur magnam nobis mollitia odio eos incidunt perspiciatis assumenda? Corporis, nulla nesciunt.</p>
+          </div>
+        </div>
+        <div class="toprecipe">
+          <h3 class="tdesign">My Top Recipes</h3>
+          <div class="toprecipeposts flex">
+            <a href="/" class="trpost">
+              <img src="/img/bread.jpg" alt="">
+              <div class="trpostinfo">
+                <h4>Brownie Cookies</h4>
+                <p><span>dapsfromends</span></p>
+              </div>
+            </a>
+            <a href="/" class="trpost">
+              <img src="/img/bread.jpg" alt="">
+              <div class="trpostinfo">
+                <h4>Brownie Cookies</h4>
+                <p><span>dapsfromends</span></p>
+              </div>
+            </a>
+            <a href="/" class="trpost">
+              <img src="/img/bread.jpg" alt="">
+              <div class="trpostinfo">
+                <h4>Brownie Cookies</h4>
+                <p><span>dapsfromends</span></p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="subscribe">
+      <div class="subscribeinfo">
+        <h1>Subscribe To My Channel</h1>
+        <p>Get All My Latest Recipes By Joining My Youtube Channel</p>
+        <form action="https://www.youtube.com/@codingwebstudio/codingwebstudio?sub_confirmation=1">
+          <input type="hidden" name="sub_confirmation=1" value="1">
+          <label for="name">@codingwebstudio</label>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+   </main>
+
+   <footer>
+    <div class="container flex">
+      <div class="footer flex">
+        <div class="footerlogo">
+          <h1>Recipe Blog</h1>
+          <p>I provide the best recipes with a special twist on a daily basis. I also make posts about fun things to do in the kitchen.</p>
+          <div class="fsocial">
+            <a href="" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footernav">
+          <h3>Category</h3>
+          <ul class="flex">
+            <li><a href="/category?name=breakfast">Breakfast</a></li>
+            <li><a href="/category?name=dessert">Dessert</a></li>
+
+          </ul>
+        </div>
+        <div class="footernav">
+          <h3>Category</h3>
+          <ul class="flex">
+            <li><a href="/category?name=dinner">Dinner</a></li>
+            <li><a href="/category?name=dairy">Dairy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex">
+        <h5>&copy; 2024 RECIPE-RADAR All Rights Reserved.</h5>
+      </div>
+    </div>
+   </footer>
+   
+     
+    `
+    <script src="js/script.js"></script>
+  </body>
+</html>
